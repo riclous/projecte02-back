@@ -74,3 +74,16 @@ return [
     ],
 
 ];
+
+
+// $fileName = $request->file('picture')->getClientOriginalName();
+// Log::channel('stderr')->info("id:",[$request->id]);
+// Log::channel('stderr')->info("file name:",[$fileName]);
+// try{
+//     Storage::disk('custom')->put("/".$request->user_id."/".$fileName,file_get_contents($request->file('picture')));
+//     $result = User::where('id',$request->user_id)->update(['user_image'=>$fileName]);
+//     Log::channel('stderr')->info("update res:",[$result]);
+// }catch(Exception $e){
+//     return response()->json($e);
+// }
+

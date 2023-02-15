@@ -5,24 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class User
+ * Class Product
  *
  * @property $id
- * @property $username
- * @property $password
+ * @property $categoriesId
  * @property $name
- * @property $email
- * @property $admin
+ * @property $price
+ * @property $tva
+ * @property $description
+ * @property $image
+ * @property $stock
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class User extends Model
+class Product extends Model
 {
 
     static $rules = [
+		'categoriesId' => 'required',
+		'image' => 'required'
     ];
 
     protected $perPage = 20;
@@ -33,10 +37,13 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'username',
+        'categoriesId',
         'name',
-        'email',
-        'admin'
+        'price',
+        'tva',
+        'description',
+        'image',
+        'stock'
     ];
 
 
