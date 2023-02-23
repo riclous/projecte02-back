@@ -25,7 +25,7 @@ class TodoController extends Controller
             unset($todo['created_at']);
         }
 
-        Log::channel('stderr')->info('returning index request',[$todos]);
+        // Log::channel('stderr')->info('returning index request',[$todos]);
         return response()->json($todos,200);
     }
 
@@ -48,7 +48,6 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         //
-        // Log::channel('stderr')->info('received store request');
         $todo = json_decode($request->getContent(),true);
         Todo::create($todo);
 
@@ -87,14 +86,15 @@ class TodoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Log::channel('stderr')->info('received id:',[$id]);
+        // Log::channel('stderr')->info('received id:',[$id]);
 
-        // $updated=Todo::update($request->all());
-        $updated=Todo::find($id);
+        // $updated=Todo::find($id);
 
-        $updated->description = $request->description;
+        // $updated->description = $request->description;
 
-        $updated->save();
+        // $updated->save();
+
+        $updated=Todo::where('id',$id)->update(['description' => $request->description]);
 
         if($updated){
             return response()->json(['info'=>true],200);
