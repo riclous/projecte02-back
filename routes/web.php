@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 // route::get('/', [ImageController::class, 'index']);
-// route::get('/images', [ImageController::class, 'index']);
+route::get('/images', [ImageController::class, 'index']);
 // route::get('/images/create', [ImageController::class, 'create']);
 // route::post('/images/create', [ImageController::class, 'store']);
 // route::post('/', [ImageController::class, 'store']);
@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('images', App\Http\Controllers\ImageController::class);
+// Route::resource('images', App\Http\Controllers\ImageController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
 Route::resource('products', App\Http\Controllers\ProductController::class);
